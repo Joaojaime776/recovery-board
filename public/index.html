@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Recovery Board</title>
+  <meta name="description" content="Demo: automated debt recovery dashboard for freelancers. All data is fictional.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23f0643c'/%3E%3Cpath d='M9 17l5 5 9-11' stroke='white' stroke-width='3.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="demo-banner" role="note">
+    <span class="demo-pill">DEMO</span>
+    <span data-i18n="demo.banner"></span>
+    <a id="repoLink" href="#" target="_blank" rel="noopener" hidden data-i18n="demo.code"></a>
+    <button id="resetDemo" class="link-btn" data-i18n="demo.reset"></button>
+  </div>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo" aria-hidden="true"></span>
+      <div>
+        <h1>Recovery Board</h1>
+        <p data-i18n="app.subtitle"></p>
+      </div>
+    </div>
+    <div class="sync">
+      <div class="sync-info">
+        <span id="syncDot" class="dot"></span>
+        <span id="syncText"></span>
+      </div>
+      <div class="alerts-wrap">
+        <button id="alertsBtn" class="icon-btn" aria-haspopup="true" aria-expanded="false" data-i18n-aria="alerts.button" data-i18n-title="alerts.button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+          <span id="alertsCount" class="badge" hidden></span>
+        </button>
+        <div id="alertsPanel" class="alerts-panel" hidden>
+          <h2 data-i18n="alerts.title"></h2>
+          <div id="alertsList"></div>
+        </div>
+      </div>
+      <button id="langBtn" class="icon-btn lang" data-i18n="lang.switch" data-i18n-title="lang.switchTitle"></button>
+      <button id="syncBtn" class="btn" data-i18n="sync.now"></button>
+    </div>
+  </header>
+
+  <main>
+    <section id="kpis" class="kpis" aria-label="Summary"></section>
+
+    <section class="toolbar" aria-label="Search and filters">
+      <label class="search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="search" type="search" autocomplete="off" data-i18n-placeholder="search.placeholder">
+      </label>
+      <div id="timeframes" class="chips" role="group"></div>
+      <select id="sourceFilter"></select>
+      <button id="newBlockBtn" class="btn" data-i18n="block.new"></button>
+    </section>
+
+    <section id="insight" class="insight" hidden></section>
+
+    <section id="board" class="board"></section>
+  </main>
+
+  <aside id="drawer" class="drawer" aria-hidden="true">
+    <div class="drawer-panel" role="dialog" aria-modal="true">
+      <button class="close" id="drawerClose" data-i18n-aria="drawer.close">×</button>
+      <div id="drawerBody"></div>
+    </div>
+  </aside>
+
+  <dialog id="blockDialog" class="dialog">
+    <form id="blockForm" novalidate>
+      <h2 id="blockFormTitle"></h2>
+      <p class="muted" data-i18n="form.intro"></p>
+      <label><span data-i18n="form.name"></span>
+        <input name="title" maxlength="120" data-i18n-placeholder="form.namePlaceholder">
+      </label>
+      <fieldset class="kind">
+        <legend data-i18n="form.type"></legend>
+        <label><input type="radio" name="kind" value="payable" checked> <span><span data-i18n="form.payable"></span><small data-i18n="form.payableHint"></small></span></label>
+        <label><input type="radio" name="kind" value="receivable"> <span><span data-i18n="form.receivable"></span><small data-i18n="form.receivableHint"></small></span></label>
+      </fieldset>
+      <div class="row">
+        <label><span data-i18n="form.amount"></span>
+          <input name="amount" type="number" min="0" step="0.01" placeholder="0.00">
+        </label>
+        <label><span data-i18n="form.currency"></span>
+          <select name="currency"><option>BRL</option><option>USD</option><option>EUR</option></select>
+        </label>
+      </div>
+      <div class="row">
+        <label><span data-i18n="form.due"></span>
+          <input name="dueDate" type="date">
+        </label>
+        <label><span data-i18n="form.status"></span>
+          <select name="zone" id="blockZone"></select>
+        </label>
+      </div>
+      <label><span><span data-i18n="form.note"></span> <span class="muted" data-i18n="form.optional"></span></span>
+        <textarea name="note" rows="2" maxlength="500"></textarea>
+      </label>
+      <p id="blockError" class="form-error" hidden></p>
+      <div class="actions">
+        <button type="button" class="btn ghost" id="blockCancel" data-i18n="form.cancel"></button>
+        <button type="submit" class="btn" id="blockSubmit"></button>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" hidden></div>
+
+  <script src="logic.js"></script>
+  <script src="i18n.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

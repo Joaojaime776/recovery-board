@@ -1,0 +1,20 @@
+{
+  "name": "debt-recovery-dashboard",
+  "version": "1.0.0",
+  "description": "Demo: automated debt recovery dashboard for freelancers (fictional data, no login).",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "sync": "node -e \"require('./src/sync').runSync('manual-cli').then(r=>{console.log(JSON.stringify(r,null,2));process.exit(0)})\"",
+    "test": "node --test \"test/*.test.js\""
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "node-cron": "^3.0.3"
+  }
+}

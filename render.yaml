@@ -1,0 +1,19 @@
+# One-click deploy on Render's free plan (https://render.com). The free instance sleeps after
+# ~15 minutes without visits and its disk is temporary, which suits a demo: the fictional
+# data is recreated on every start.
+services:
+  - type: web
+    name: recovery-board
+    runtime: node
+    plan: free
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /healthz
+    envVars:
+      - key: DEMO_MODE
+        value: "true"
+      - key: SYNC_TZ
+        value: America/Sao_Paulo
+      # Link shown in the demo banner. Set it in the Render dashboard after creating the repo.
+      - key: REPO_URL
+        sync: false
