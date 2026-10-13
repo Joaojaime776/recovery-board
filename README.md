@@ -2,11 +2,11 @@
 
 **Painel de recuperação de pagamentos atrasados para freelancers.** Projeto de demonstração e portfólio: todos os dados são fictícios, não há login e nada do que o visitante faz sai do navegador dele.
 
-🔗 **Demo ao vivo:** _adicione aqui o link do Render depois de publicar_
+🔗 **Demo ao vivo: [recovery-board.onrender.com](https://recovery-board.onrender.com)** — sem cadastro. O primeiro acesso pode levar até 1 minuto (servidor gratuito acordando).
 
 ![Recovery Board](docs/screenshot.png)
 
-> 🇺🇸 **English summary** — A debt-recovery dashboard for freelancers: invoices are sorted into five color-coded workflow zones by how late they are, with search, overdue-timeframe filters, an automated collection timeline with message templates, and drag-and-drop blocks for tracking your own bills, with due-date alerts. Demo project: fictional data, no login, the UI switches between Portuguese and English. Built with Node.js/Express and vanilla JavaScript, developed with an AI coding assistant (Claude Code).
+> 🇺🇸 **English summary** — A debt-recovery dashboard for freelancers: invoices are sorted into five color-coded workflow zones by how late they are, with search, overdue-timeframe filters, an automated collection timeline with message templates, and drag-and-drop blocks for tracking your own bills, with due-date alerts. Live demo: https://recovery-board.onrender.com (first load may take up to a minute). Demo project: fictional data, no login, the UI switches between Portuguese and English. Built with Node.js/Express and vanilla JavaScript, developed with an AI coding assistant (Claude Code).
 
 ## O que dá para testar
 

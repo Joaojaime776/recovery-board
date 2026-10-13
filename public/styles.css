@@ -279,3 +279,8 @@ mark { background: color-mix(in srgb, #ffd43b 55%, transparent); color: inherit;
 .card-client, .card-meta > span:first-child { min-width: 0; }
 .card-meta > span:first-child { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .card-meta > span:last-child { flex: none; }
+
+/* Shown until the first data arrives (a free host may need to wake up). */
+.loading { grid-column: 1 / -1; display: flex; gap: 12px; align-items: center; justify-content: center; padding: 60px 16px; color: var(--muted); text-align: center; }
+.spinner { flex: none; width: 20px; height: 20px; border-radius: 50%; border: 3px solid var(--border); border-top-color: var(--accent); animation: spin .8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }

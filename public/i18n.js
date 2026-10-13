@@ -150,6 +150,7 @@
       'seed.logo': 'Projeto de logo – Ana', 'seed.logoNote': 'Combinado: 50% na entrega',
 
       'drawer.close': 'Fechar',
+      'loading': 'Carregando a demonstração… O servidor gratuito pode levar até 1 minuto para acordar no primeiro acesso.',
     },
 
     en: {
@@ -298,6 +299,7 @@
       'seed.logo': 'Logo project – Ana', 'seed.logoNote': 'Agreed: 50% on delivery',
 
       'drawer.close': 'Close',
+      'loading': 'Loading the demo… The free server can take up to a minute to wake up on the first visit.',
     },
   };
 
