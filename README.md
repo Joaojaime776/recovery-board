@@ -32,23 +32,3 @@
 | [`test/`](test/) | Testes automáticos das regras (`node:test`) |
 
 **Privacidade:** as faturas exibidas são fictícias e geradas no servidor. Os blocos criados pelo visitante ficam apenas no navegador dele (`localStorage`) e nunca são enviados ao servidor.
-
-## Rodar no seu computador
-
-Precisa do [Node.js](https://nodejs.org) 22 ou mais recente.
-
-```bash
-npm install
-npm start        # http://localhost:3000
-npm test         # testes automáticos
-```
-
-## Publicar de graça
-
-O arquivo [`render.yaml`](render.yaml) já deixa tudo pronto para o plano gratuito do [Render](https://render.com): crie um *Blueprint* apontando para este repositório. No plano gratuito o site "dorme" após 15 minutos sem visitas e leva cerca de 30–50 segundos para acordar no primeiro acesso.
-
-## Tecnologias
-
-Node.js · Express · node-cron · JavaScript sem framework · HTML/CSS · `node:test` · Render
-
-Desenvolvido com o apoio de um assistente de programação com IA (Claude Code), usado para planejar, escrever, testar no navegador e revisar o código.
